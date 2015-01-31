@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Moodjournal</title>
+	<style>
+
+	html, body {
+		width: 100%;
+	}
+
+	body {
+		padding: 0;
+		margin: 0;
+	}
+
+	div {
+		margin: 0;
+		padding: 0;
+	}
+
+	.container {
+		position: relative;
+		width: 500px;
+		height: 500px;
+		margin: 100px auto 0;
+	}
+
+	.line-wrapper {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 500px;
+		height: 500px;
+		border: 1px solid red;
+	}
+
+	.text-wrapper {
+		font-family: Courier;
+	    white-space: nowrap;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 500px;
+		height: 500px;
+		border: 1px solid green;
+	}
+
+
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<canvas class="line-wrapper"></canvas>
+		<div class="text-wrapper"></div>
+	</div>
+	<script src="js/script.js"></script>
+</body>
+</html>
