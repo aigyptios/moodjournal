@@ -2,9 +2,10 @@ var cpl = 0;
 var wrapper = document.getElementsByClassName('text-wrapper')[0];
 var canvasCtx = document.getElementsByClassName('line-wrapper')[0].getContext('2d');
 
-canvasCtx.fillStyle = "rgb(255, 165, 0)";
+canvasCtx.fillStyle = canvasCtx.strokeStyle = "rgb(255, 165, 0)";
 
 document.addEventListener('keypress', function(ke) {
+	console.log(ke);
 
 	if (cpl === 52) {
 		var br = document.createElement('br');
@@ -44,15 +45,25 @@ document.addEventListener('keypress', function(ke) {
 			return;
 		}
 		else {
-			console.log('A\'s entered: ', letters_a.length);
-			canvasCtx.beginPath();
-			var x = letters_a[letters_a.length - 1].offsetLeft + 5;
-			var y = letters_a[letters_a.length - 1].offsetTop + 8;
 
-			console.log("x: ", x, ", y: ", y)
+			canvasCtx.beginPath();
+
+			var lastA = letters_a[letters_a.length - 2];
+			var thisA = letters_a[letters_a.length - 1];
+
+			var lastX = lastA.offsetLeft + 5;
+			var lastY = lastA.offsetTop + 8;
+
+			var x = thisA.offsetLeft + 5;
+			var y = thisA.offsetTop + 8;
 
 			canvasCtx.arc(x, y, 2, 0, Math.PI*2, true);
+
+			canvasCtx.moveTo(lastX, lastY);
+			canvasCtx.lineTo(x, y);
+
 			canvasCtx.fill();
+			canvasCtx.stroke();
 		}
 	}
 
